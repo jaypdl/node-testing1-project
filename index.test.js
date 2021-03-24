@@ -56,7 +56,6 @@ describe('[Exercise 4] Counter', () => {
     expect(counter.countDown()).toBe(2)
   })
   it('[8] the count eventually reaches zero but does not go below zero', () => {
-    // ✨ test away
     counter.countDown()
     counter.countDown()
     counter.countDown()
@@ -71,22 +70,36 @@ describe('[Exercise 5] Seasons', () => {
     seasons = new utils.Seasons() // each test must start with fresh seasons
   })
   it('[9] the FIRST call of seasons.next returns "summer"', () => {
-    // ✨ test away
+    expect(seasons.next()).toBe('summer')
   })
   it('[10] the SECOND call of seasons.next returns "fall"', () => {
-    // ✨ test away
+    seasons.next()
+    expect(seasons.next()).toBe('fall')
   })
   it('[11] the THIRD call of seasons.next returns "winter"', () => {
-    // ✨ test away
+    seasons.next()
+    seasons.next()
+    expect(seasons.next()).toBe('winter')
   })
   it('[12] the FOURTH call of seasons.next returns "spring"', () => {
-    // ✨ test away
+    seasons.next()
+    seasons.next()
+    seasons.next()
+    expect(seasons.next()).toBe('spring')
   })
   it('[13] the FIFTH call of seasons.next returns again "summer"', () => {
-    // ✨ test away
+    seasons.next()
+    seasons.next()
+    seasons.next()
+    seasons.next()
+    expect(seasons.next()).toBe('summer')
   })
   it('[14] the 40th call of seasons.next returns "spring"', () => {
     // ✨ test away
+    for (let i = 0; i < 39; i++) {
+      seasons.next()
+    }
+    expect(seasons.next()).toBe('spring')
   })
 })
 
