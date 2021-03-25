@@ -113,7 +113,6 @@ class Car {
   constructor(name, tankSize, mpg) {
     this.odometer = 0 // car initilizes with zero miles
     this.tank = tankSize // car initiazes full of gas
-    // ✨ initialize whatever other properties are needed
     this.name = name
     this.mpg = mpg
     this.maxTank = tankSize
@@ -133,7 +132,6 @@ class Car {
    * focus.drive(200) // returns 600 (ran out of gas after 100 miles)
    */
   drive(distance) {
-    // ✨ implement
     this.currentRange = this.tank * this.mpg
     if (distance > this.currentRange) {
       this.tank = 0
@@ -158,7 +156,6 @@ class Car {
    * focus.refuel(99) // returns 600 (tank only holds 20)
    */
   refuel(gallons) {
-    // ✨ implement
     if (this.tank + gallons >= this.maxTank) {
       this.tank = this.maxTank
     } else {
@@ -188,6 +185,11 @@ class Car {
  */
 function isEvenNumberAsync(number) {
   // ✨ implement
+  if (typeof number !== 'number' || isNaN(number)) {
+    return Promise.resolve('number must be a number')
+  } else {
+    return Promise.resolve(number % 2 === 0 ? true : false)
+  }
 }
 
 module.exports = {
