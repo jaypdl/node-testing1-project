@@ -95,7 +95,6 @@ describe('[Exercise 5] Seasons', () => {
     expect(seasons.next()).toBe('summer')
   })
   it('[14] the 40th call of seasons.next returns "spring"', () => {
-    // ✨ test away
     for (let i = 0; i < 39; i++) {
       seasons.next()
     }
@@ -109,16 +108,25 @@ describe('[Exercise 6] Car', () => {
     focus = new utils.Car('focus', 20, 30) // each test must start with a fresh car
   })
   it('[15] driving the car returns the updated odometer', () => {
-    // ✨ test away
+    expect(focus.drive(10)).toBe(10)
   })
   it('[16] driving the car uses gas', () => {
     // ✨ test away
+    focus.drive(30)
+    expect(focus.tank).toBe(19)
   })
   it('[17] refueling allows to keep driving', () => {
     // ✨ test away
+    expect(focus.drive(615)).toBe(600)
+    focus.refuel(5)
+    focus.refuel(10)
+    expect(focus.tank).toBe(15)
+    expect(focus.drive(600)).toBe(1050)
   })
   it('[18] adding fuel to a full tank has no effect', () => {
     // ✨ test away
+    focus.refuel(99)
+    expect(focus.tank).toBe(20)
   })
 })
 
